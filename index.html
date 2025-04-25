@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finals Lab Task 2</title>
+    <style>
+        /* Loading Animation */
+        .loader-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #1a1a1a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .loader {
+            width: 100px;
+            height: 100px;
+            border: 5px solid #ff69b4;
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: spin 1s linear infinite;
+        }
+
+        .skull-icon {
+            position: absolute;
+            font-size: 40px;
+            color: #ff69b4;
+            animation: pulse 1s ease-in-out infinite;
+        }
+
+        /* Bat burst animation */
+        .bat-burst {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            background-image: url('https://media.tenor.com/Npixqj3Ek1IAAAAi/sappy-seals.gif');
+            background-size: contain;
+            background-repeat: no-repeat;
+            pointer-events: none;
+            animation: burst 1.5s ease-out forwards;
+            z-index: 9999;
+        }
+
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes fadeOut {
+            100% { opacity: 0; visibility: hidden; }
+        }
+
+        @keyframes burst {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        @keyframes backgroundScroll {
+            from { background-position: 0 0; }
+            to { background-position: -100% 0; }
+        }
+
+        body {
+            cursor: url('https://www.cursor.cc/cursor3d/66307.png') 25 25, auto;
+            background-color: #1a1a1a;
+            color: #ff69b4;
+            font-family: 'Gothic', cursive;
+            margin: 0;
+            padding: 20px;
+            background-image: url('https://i.pinimg.com/736x/6e/23/ed/6e23edac1daba77b52caafff61a4c369.jpg');
+            background-repeat: repeat-x;
+            animation: backgroundScroll 20s linear infinite;
+            background-size: contain;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1, h2, h3 {
+            text-align: center;
+            color: #ff1493;
+            text-shadow: 2px 2px 4px #000;
+            font-family: 'Monster High', fantasy;
+        }
+
+        .content-section {
+            margin: 30px 0;
+            padding: 20px;
+            background-color: rgba(26, 26, 26, 0.8);
+            border-radius: 10px;
+            border: 2px solid #ff69b4;
+            transition: transform 0.3s;
+        }
+
+        .content-section:hover {
+            transform: scale(1.01);
+            box-shadow: 0 0 25px rgba(255, 105, 180, 0.3);
+        }
+
+        .step-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .step-list li {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: rgba(255, 105, 180, 0.1);
+            border-radius: 8px;
+            border-left: 4px solid #ff1493;
+            transition: transform 0.3s;
+        }
+
+        .step-list li:hover {
+            transform: translateX(10px);
+            background-color: rgba(255, 105, 180, 0.2);
+        }
+
+        .image-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            border: 3px solid #ff69b4;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
+        }
+
+        .download-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #ff1493;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            margin: 20px auto;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+        }
+
+        .download-btn:hover {
+            background-color: #ff69b4;
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 105, 180, 0.8);
+        }
+
+        .download-section {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="loader-wrapper">
+        <div class="loader"></div>
+        <div class="skull-icon">💀</div>
+    </div>
+
+    <div class="container">
+        <h1>Finals Lab Task 2 - Transforming ER Model to Relational Tables</h1>
+
+        <div class="download-section">
+            <a href="https://github.com/user-attachments/files/19642570/Finals.Lab.Task.2.-.Manarang.docx" class="download-btn">
+                Download Word File
+            </a>
+        </div>
+
+        <div class="content-section">
+            <h2>Step By Step Process</h2>
+            <h3>1. Create the student table:</h3>
+            <ul class="step-list">
+                <li>Define username as a VARCHAR(50)</li>
+                <li>Set username as the Primary Key</li>
+            </ul>
+
+            <h3>2. Create the assignment table:</h3>
+            <ul class="step-list">
+                <li>Define shortname as a VARCHAR(50) and set it as the Primary Key</li>
+                <li>Define due_date as a DATE NOT NULL</li>
+                <li>Define url as a VARCHAR(255), which can be null</li>
+            </ul>
+
+            <h3>3. Create the submission table:</h3>
+            <ul class="step-list">
+                <li>Define username and shortname both as VARCHAR(50)</li>
+                <li>Define version as an INT</li>
+                <li>Define submit_date as a DATE NOT NULL</li>
+                <li>Define data as TEXT</li>
+                <li>Set a composite primary key of (username, shortname, version)</li>
+                <li>Add foreign keys referencing the student and assignment tables</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Query Statements</h2>
+            
+            <h3>1. Student Table</h3>
+            <div class="image-container">
+                <img src="https://github.com/user-attachments/assets/e331491a-0585-40bc-b2b9-77f38abc3845" alt="Student Table Query">
+            </div>
+
+            <h3>2. Assignment Table</h3>
+            <div class="image-container">
+                <img src="https://github.com/user-attachments/assets/542d7ab7-418c-4e0d-b3c4-d1c627965040" alt="Assignment Table Query">
+            </div>
+
+            <h3>3. Submission Table</h3>
+            <div class="image-container">
+                <img src="https://github.com/user-attachments/assets/418b422f-acd5-4300-a911-3293d8295810" alt="Submission Table Query">
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Table Structure</h2>
+            
+            <h3>1. Student Table</h3>
+            <div class="image-container">
+                <img src="https://github.com/user-attachments/assets/78e48b99-f5fc-4c12-8ecf-a45fd2cd695c" alt="Student Table Structure">
+            </div>
+
+            <h3>2. Assignment Table</h3>
+            <div class="image-container">
+                <img src="https://github.com/user-attachments/assets/c0a9f5b9-bc63-48e8-a9c6-ee74830fed1b" alt="Assignment Table Structure">
+            </div>
+
+            <h3>3. Submission Table</h3>
+            <div class="image-container">
+                <img src="https://github.com/user-attachments/assets/054d1161-db9c-4aeb-acc2-01c6c79e91ef" alt="Submission Table Structure">
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>EER Diagram</h2>
+            <div class="image-container">
+                <img src="https://github.com/user-attachments/assets/d9a6658a-6fed-4c55-a1c9-073c0ec317e9" alt="EER Diagram 1">
+                <img src="https://github.com/user-attachments/assets/0f1b0f0d-7dcf-4964-ad87-8db14deb9299" alt="EER Diagram 2">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.querySelector('.loader-wrapper').style.animation = 'fadeOut 1s ease-out forwards';
+            }, 2000);
+        });
+
+        document.addEventListener('click', (e) => {
+            const burst = document.createElement('div');
+            burst.className = 'bat-burst';
+            burst.style.left = `${e.clientX - 30}px`;
+            burst.style.top = `${e.clientY - 30}px`;
+            document.body.appendChild(burst);
+
+            setTimeout(() => {
+                burst.remove();
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
+
